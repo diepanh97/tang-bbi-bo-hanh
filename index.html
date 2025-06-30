@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hành Trong Giỏ</title>
+  <style>
+    body {
+      background-color: pink;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    #container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+    #main-image {
+      width: auto;
+      height: 100vh;
+    }
+    .message-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+      z-index: 10;
+    }
+    .message-box p {
+      font-size: 20px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    #hint {
+      position: absolute;
+      top: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 24px;
+      color: #800000;
+    }
+    .click-zone {
+      position: absolute;
+      width: 12%;
+      height: 35%;
+      bottom: 20%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <img id="main-image" src="main.png" alt="Basket with Onions">
+    <div id="hint">Ấn vào cây hành i:3</div>
+
+    <!-- Click Zones -->
+    <div class="click-zone" style="left:18%" onclick="showMessage(0)"></div>
+    <div class="click-zone" style="left:30%" onclick="showMessage(1)"></div>
+    <div class="click-zone" style="left:42%" onclick="showMessage(2)"></div>
+    <div class="click-zone" style="left:54%" onclick="showMessage(3)"></div>
+    <div class="click-zone" style="left:66%" onclick="showMessage(4)"></div>
+
+    <!-- Message Box -->
+    <div id="messageBox" class="message-box">
+      <div class="close-btn" onclick="closeMessage()">✖</div>
+      <p id="messageText"></p>
+    </div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="https://example.com/nguoi-yeu-bo-lo.mp3" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ phát nhạc nền.
+  </audio>
+
+  <script>
+    const messages = [
+      "Hành hiệp bảo vệ em.",
+      "Hành động thay vì lời nói.",
+      "Hành trình có em.",
+      "Hành động vì em.",
+      "Hành xử tinh tế, tử tế với em."
+    ];
+
+    function showMessage(index) {
+      document.getElementById("messageText").innerText = messages[index];
+      document.getElementById("messageBox").style.display = "block";
+    }
+
+    function closeMessage() {
+      document.getElementById("messageBox").style.display = "none";
+    }
+  </script>
+</body>
+</html>
